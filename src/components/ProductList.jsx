@@ -2,19 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../actions/actions';
 
-const ProductCard = ({ productName, productImage, productRating, productPrice }) => {
-    const dispatch = useDispatch();
-
-    const handleAddToCart = () => {
-        const product = {
-            productName,
-            productImage,
-            productRating,
-            productPrice,
-        };
-        dispatch(addToCart(product));
-    };
-
+const ProductCard = ({ productName, productImage, productRating, productPrice, onAddToCart }) => {
     return (
         <div className='col-4'>
             <div className="product-card">
@@ -29,7 +17,7 @@ const ProductCard = ({ productName, productImage, productRating, productPrice })
                 </div>
                 <div className="product-footer">
                     <p className="product-price">₹{productPrice.toFixed(2)}</p>
-                    <button className="btn-cart add-to-cart-btn" onClick={handleAddToCart}>Add to Cart</button>
+                    <button className="btn-cart add-to-cart-btn" onClick={onAddToCart}>Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -37,11 +25,15 @@ const ProductCard = ({ productName, productImage, productRating, productPrice })
 };
 
 const ProductList = () => {
-    const products = useSelector((state) => state.products)
+    const products = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+    const handleAddToCart = (product) => {
+        dispatch(addToCart(product));
+    };
     return (
         <div className="row">
             {products.map((product, index) => (
-                <ProductCard key={index} {...product} />
+                <ProductCard key={index} {...product} onAddToCart={() => handleAddToCart(product)} />
             ))}
         </div>
     )

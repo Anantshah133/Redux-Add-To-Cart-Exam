@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductList from './ProductList';
+import {Link} from 'react-router-dom';
 
 const Main = () => {
     return (
@@ -15,26 +15,13 @@ const Main = () => {
                             Success isn't always about greatness. It's about consistency.
                             Consistent <br />hard work gains success. Greatness will come.
                         </p>
-                        <a href="index.html" target="_blank" rel="noopener noreferrer" className="btn">Explore Now →</a>
+                        <Link to={'/products'} className="btn">Explore Now →</Link>
                     </div>
                     <div className="col-2">
                         <img src="https://i.ibb.co/QpTmdX5/image1.png" alt='no' />
                     </div>
                 </div>
             </div>
-            <div className="small-container">
-                <div className="row row-2">
-                    <h2>All Products</h2>
-                    <select>
-                        <option value>Default Shorting</option>
-                        <option value>Short by price</option>
-                        <option value>Short by popularity</option>
-                        <option value>Short by rating</option>
-                        <option value>Short by sale</option>
-                    </select>
-                </div>
-                <ProductList />
-            </div>Ì
             <div className="footer">
                 <div className="container">
                     <div className="row">

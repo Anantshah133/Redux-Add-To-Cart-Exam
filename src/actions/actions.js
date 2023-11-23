@@ -1,5 +1,4 @@
-import { REMOVE_FROM_CART, SET_PRODUCTS, UPDATE_CART_QUANTITY } from './actionTypes';
-import { ADD_TO_CART } from './actionTypes';
+import { SET_PRODUCTS, ADD_TO_CART, UPDATE_CART_QUANTITY, REMOVE_FROM_CART } from './actionTypes';
 
 export const setProducts = (products) => ({
     type: SET_PRODUCTS,
@@ -11,14 +10,12 @@ export const addToCart = (product) => ({
     payload: product,
 });
 
-export const updateCartQuantity = (productId, quantity) => ({
+export const updateCartQuantity = (productName, quantity) => ({
     type: UPDATE_CART_QUANTITY,
-    payload: { productId, quantity },
+    payload: { productName, quantity },
 });
 
-export const removeFromCart = (productId) => {
-    return {
-        type: REMOVE_FROM_CART,
-        payload: productId,
-    };
-};
+export const removeFromCart = (productName) => ({
+    type: REMOVE_FROM_CART,
+    payload: productName,
+});

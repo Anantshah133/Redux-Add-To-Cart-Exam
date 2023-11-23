@@ -673,3 +673,25 @@ form a {
   margin: 10px 0;
 }
 
+#MenuItems li{
+  position: relative;
+}
+#MenuItems li i {
+    font-size: 25px;
+}
+
+.cart-items{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  padding: 5px;
+  background-color: black;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -8px;
+  right: -8px;
+}

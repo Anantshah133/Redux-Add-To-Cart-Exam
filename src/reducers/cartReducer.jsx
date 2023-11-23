@@ -5,7 +5,7 @@ const initialState = [];
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TO_CART:
-            const existingProductIndex = state.findIndex(item => item.productId === action.payload.productId);
+            const existingProductIndex = state.findIndex(item => item.productName === action.payload.productName);
             if (existingProductIndex !== -1) {
                 const updatedState = [...state];
                 updatedState[existingProductIndex].quantity += 1;
@@ -15,12 +15,12 @@ const cartReducer = (state = initialState, action) => {
             }
         case UPDATE_CART_QUANTITY:
             return state.map(item =>
-                item.productId === action.payload.productId
+                item.productName === action.payload.productName
                     ? { ...item, quantity: action.payload.quantity }
                     : item
             );
         case REMOVE_FROM_CART:
-            return state.filter((item, idx) => idx !== action.payload);
+            return state.filter((item) => item.productName !== action.payload);
         default:
             return state;
     }
