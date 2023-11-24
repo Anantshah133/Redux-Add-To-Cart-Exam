@@ -38,13 +38,17 @@
     cursor: pointer;
 }
 
+.delete-btn:hover{
+    color: white;
+    background-color: #9a2e00ce !important;
+}
 .delete-btn {
     background-color: #ff4d00ce !important;
     width: 20px;
     height: 20px;
     font-weight: bold;
     color: white;
-    /* background: url("https://designmodo.com/demo/shopping-cart/delete-icn.svg") no-repeat center; */
+    border-radius: 50% !important;
 }
 
 
@@ -170,5 +174,6 @@ img{
 }
 
 .fs-40{
-    font-size: 25px;
+    font-size: 22px;
+    letter-spacing: 1px;
 }
